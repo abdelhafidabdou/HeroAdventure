@@ -1,6 +1,7 @@
 <div class="col-sm-12">
+  <div class="row">
   <legend class="col-md-3 label ">Position Initial </legend>
- <div> (
+ <div > (
   <select id="x"  [(ngModel)]="x"  >
     <option *ngFor="let c of width" [value]="c" >{{ c }}</option>
   </select>
@@ -8,7 +9,8 @@
   <select id="y"  [(ngModel)]="y"  >
     <option *ngFor="let c of length" [value]="c" >{{ c }}</option>
   </select>
-   ) </div>
+   )
+ </div>
   <div row>
     <label> Les déplacements :
       <div row >
@@ -29,25 +31,33 @@
 
 
     </label>
+  </div>
     <Div   placeholder="moves"> Les déplacement sélectionnés : &ensp; {{moves}} </Div>
   </div>
 
   <div row >
+    <div class="col-sm-4" >
     <button class="btn btn-info btn-sm clickable "
             (click)="deleteLastMove();"> Delete step
     </button>
 
+
     <button class="btn btn-info btn-sm clickable "
             (click)="deleteAllMove();"> Delete all steps
     </button>
+      </div>
   </div>
 
   <div row>  <br> </div>
 
   <div row >
+
+    <div class="col-sm-4">
     <button class="btn btn-info btn-sm clickable "
             (click)="moveTo();"> move
     </button>
+
+    </div>
   </div>
 
   <fieldset class="employer-fieldset">
@@ -68,14 +78,26 @@
 
   </fieldset>
 
+
 </div>
+
+<div class="row">
+<div class="col-sm-1">
+
+
+
+</div>
+<div class="col-sm-6">
+
 <div class="row" *ngFor="let row of matrix">
   <div class="col" *ngFor="let col of row">
     <div  >{{col}}</div>
   </div>
 </div>
 
+</div>
 
+</div>
 
 
 

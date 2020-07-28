@@ -56,7 +56,7 @@ export class MoveHeroComponent implements OnInit {
          Object.assign(this.coordinatesAfterMove, data);
          this.err=null;
          this.showResult = true;
-         this.matrix[this.y][this.x] = 'PL';
+        // this.matrix[this.y][this.x] = 'PL';
         },
       err => { this.err = err; console.log(err); this.showResult = false;}
     );

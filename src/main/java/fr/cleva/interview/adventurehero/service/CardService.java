@@ -26,6 +26,9 @@ public class CardService {
     public static final char SUD = 'S';
     public static final int LENGTH = 19;
     public static final int WIDTH = 19;
+    public static final String IMPENETRABLE_MSG_EXCEPTION = "ce deplacement n'est pas autorise, bois impénétrables";
+    public static final String OUT_OF_RANGE_MSG_EXCEPTION = "ce deplacement n'est pas autorise, hors de portee";
+    public static final String USER_DIR = "user.dir";
 
     /***
      * read the map.txt file and creat the correspondant Card
@@ -65,7 +68,7 @@ public class CardService {
                     }
                     checkAutorisedMove(coordinate, card);
         });
-        System.out.println(" calculated coordinate : " + coordinate);
+
         return coordinate;
     }
 
@@ -84,7 +87,7 @@ public class CardService {
      * check if the Coordinate is in the card and its a allowed position
      * @param coordinate
      * @param card
-     * @return
+     * @return true if the check secceed
      * @throws NotAutorisedMove
      */
     public boolean checkAutorisedMove(Coordinate coordinate, Card card) throws NotAutorisedMove{
@@ -92,10 +95,11 @@ public class CardService {
                 || coordinate.getY() > card.getLength()
                 || coordinate.getY() < 0
                 || coordinate.getX() < 0 )
-           throw new NotAutorisedMove("ce deplacement n'est pas autorise, hors de portee");
+           throw new NotAutorisedMove(OUT_OF_RANGE_MSG_EXCEPTION);
 
         if(card.getOccupiedSquares().contains(coordinate))
-            throw new NotAutorisedMove("ce deplacement n'est pas autorise, bois impénétrables");
+            throw new NotAutorisedMove(IMPENETRABLE_MSG_EXCEPTION);
+        System.out.println(card.getOccupiedSquares().contains(coordinate));
         return true;
 
     }
@@ -110,13 +114,18 @@ public class CardService {
         int c = 0;
         int x = 0;
         int y = 0;
-        String localDir = System.getProperty("user.dir");
+        String localDir = System.getProperty(USER_DIR);
         String relatifPath = localDir + "\\"+fileName;
         List<Coordinate> occupiedSquares = new ArrayList<>();
+
+        File file ;
+        FileReader fr =   null;
+        BufferedReader br = null;
+
         try {
-            File file = new File(relatifPath);
-            FileReader fr =   new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
+              file = new File(relatifPath);
+              fr =   new FileReader(file);
+              br = new BufferedReader(fr);
             while((c = br.read()) != -1)
             {
                 char ch = (char) c;
@@ -127,6 +136,15 @@ public class CardService {
             }
         } catch (Exception e) {
             e.printStackTrace();
+
+        }finally {
+            if( fr != null)
+                try {
+                    fr.close();
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
         }
         return new Card(WIDTH,LENGTH,occupiedSquares);
     }
@@ -134,4 +152,4 @@ public class CardService {
 
 }
 
-// singleton la class enum
+
