@@ -1,11 +1,11 @@
 <div class="col-sm-12">
   <legend class="col-md-3 label ">Position Initial </legend>
  <div> (
-  <select id="x"  [(ngModel)]="x" (ngModelChange)="updateInitialCoord($event)">
+  <select id="x"  [(ngModel)]="x"  >
     <option *ngFor="let c of width" [value]="c" >{{ c }}</option>
   </select>
 ,
-  <select id="y"  [(ngModel)]="y" (ngModelChange)="updateInitialCoord($event)">
+  <select id="y"  [(ngModel)]="y"  >
     <option *ngFor="let c of length" [value]="c" >{{ c }}</option>
   </select>
    ) </div>
