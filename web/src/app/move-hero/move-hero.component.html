@@ -1,0 +1,81 @@
+<div class="col-sm-12">
+  <legend class="col-md-3 label ">Position Initial </legend>
+ <div> (
+  <select id="x"  [(ngModel)]="x" (ngModelChange)="updateInitialCoord($event)">
+    <option *ngFor="let c of width" [value]="c" >{{ c }}</option>
+  </select>
+,
+  <select id="y"  [(ngModel)]="y" (ngModelChange)="updateInitialCoord($event)">
+    <option *ngFor="let c of length" [value]="c" >{{ c }}</option>
+  </select>
+   ) </div>
+  <div row>
+    <label> Les déplacements :
+      <div row >
+        <button class="btn btn-info btn-sm clickable "
+                                 (click)="concat('S');"> S
+      </button>
+        <button class="btn btn-info btn-sm clickable "
+                (click)="concat('N');"> N
+        </button>
+        <button class="btn btn-info btn-sm clickable "
+                (click)="concat('E');"> E
+        </button>
+        <button class="btn btn-info btn-sm clickable "
+                (click)="concat('O');"> O
+        </button>
+      </div>
+
+
+
+    </label>
+    <Div   placeholder="moves"> Les déplacement sélectionnés : &ensp; {{moves}} </Div>
+  </div>
+
+  <div row >
+    <button class="btn btn-info btn-sm clickable "
+            (click)="deleteLastMove();"> Delete step
+    </button>
+
+    <button class="btn btn-info btn-sm clickable "
+            (click)="deleteAllMove();"> Delete all steps
+    </button>
+  </div>
+
+  <div row>  <br> </div>
+
+  <div row >
+    <button class="btn btn-info btn-sm clickable "
+            (click)="moveTo();"> move
+    </button>
+  </div>
+
+  <fieldset class="employer-fieldset">
+
+
+    <div  *ngIf="showResult">
+      <label>
+        the new position is : X : {{ coordinatesAfterMove.x}} , Y: {{coordinatesAfterMove.y }}
+      </label>
+    </div>
+
+    <div class = "error" *ngIf="err">
+      <label class="error">
+        err : {{err.error.message }}
+      </label>
+    </div>
+
+
+  </fieldset>
+
+</div>
+<div class="row" *ngFor="let row of matrix">
+  <div class="col" *ngFor="let col of row">
+    <div  >{{col}}</div>
+  </div>
+</div>
+
+
+
+
+

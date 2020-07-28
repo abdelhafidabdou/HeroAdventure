@@ -1,0 +1,70 @@
+{
+	"id": "d1051a35-5259-208f-ab5e-70ba77506517",
+	"name": "hero-Adventure",
+	"description": "",
+	"order": [
+		"d25504fa-fb7f-8bfb-b8e5-4018a521115e",
+		"4dedef53-0d01-b06f-93df-c38b68b00ee8"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1595964096460,
+	"owner": "1990529",
+	"public": false,
+	"requests": [
+		{
+			"id": "4dedef53-0d01-b06f-93df-c38b68b00ee8",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/api/card/move",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "d1051a35-5259-208f-ab5e-70ba77506517",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:8080/api/card/",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1595966139784,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{ \"steps\" : \"SSSSEEEEEENN\", \"initialCoordinates\": {\"x\": 3, \"y\": 0}}"
+		},
+		{
+			"id": "d25504fa-fb7f-8bfb-b8e5-4018a521115e",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8080/api/card/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "d1051a35-5259-208f-ab5e-70ba77506517",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://localhost:8080/api/card/",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1595965434670,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
