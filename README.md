@@ -34,6 +34,13 @@
    #### Indication
    this application don't include database Once we add one we can put/get the card file from the database
    
-   the map.txt file is in the resources directory
+   the carte.txt file is in the resources directory
    
-   for this case the dimension of the Card is fix [19*19]         
+   for this case the dimension of the Card is fix [19*19]  
+   
+   #### 
+   the packeged file is root directory but it contains only the back-end (micro-service)
+   
+   
+   
+          
