@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HeroService} from "../services/hero-service.service";
-import {Card, MoveDetails} from "./MoveDetails";
+import {Card, MoveDetails} from "./move-details";
 import {Coordinate} from "./Coordinate";
 
 @Component({
