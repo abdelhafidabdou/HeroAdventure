@@ -81,7 +81,7 @@ class CardRestControllerTest {
         Coordinate coordinate = new Coordinate(0,0);
         Coordinate coordinate1 = new Coordinate(1,1);
         Coordinate coordinate2 = new Coordinate(2,2);
-     //
+
           when( cardService.readCard()).
                   thenReturn(
                          Optional.of( new Card(19,19, asList(coordinate,coordinate1,coordinate2)))
@@ -103,7 +103,6 @@ class CardRestControllerTest {
         Coordinate init = new Coordinate(3,0);
         String steps = "SS";
         MoveDetails moveDetails = new MoveDetails(init,steps);
-
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(SerializationFeature.WRAP_ROOT_VALUE, false);
         ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
@@ -112,9 +111,9 @@ class CardRestControllerTest {
          when( cardService.move(any(MoveDetails.class))).thenReturn(Optional.of(new Coordinate(3,2)));
         mvc.perform(
                 MockMvcRequestBuilders.post("/api/card/move").contentType(APPLICATION_JSON)
-                .content(requestJson )
-        ).andDo(print()).andExpect(status().isOk())
-
+                .content(requestJson ))
+                .andDo(print())
+                .andExpect(status().isOk())
                 .andExpect(jsonPath("$.x", Matchers.is(3)))
                 .andExpect(jsonPath("$.y", Matchers.is(2)))      ;
 
