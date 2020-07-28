@@ -32,6 +32,8 @@
    #### a postman collection for the rest api is in the resources folder
    
    #### Indication
-   this application don't include database Once we add one we can put/get the map file from the database
+   this application don't include database Once we add one we can put/get the card file from the database
+   
    the map.txt file is in the resources directory
+   
    for this case the dimension of the Card is fix [19*19]         
